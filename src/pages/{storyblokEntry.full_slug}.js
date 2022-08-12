@@ -24,8 +24,8 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-  query HomeQuery {
-    storyblokEntry(full_slug: { eq: "home" }) {
+  query ($full_slug: String!) {
+    storyblokEntry(full_slug: { eq: $full_slug }) {
       content
       name
       full_slug
