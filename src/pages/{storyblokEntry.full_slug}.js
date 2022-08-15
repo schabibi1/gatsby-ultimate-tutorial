@@ -1,3 +1,5 @@
+
+
 import * as React from "react"
 import { graphql } from "gatsby"
 
@@ -5,7 +7,7 @@ import { StoryblokComponent, storyblokEditable, useStoryblokState } from "gatsby
 
 import Layout from "../components/layout"
 
-export default function Page({ data }) {
+const IndexPage = ({ data }) => {
   let story = data.storyblokEntry
   story = useStoryblokState(story)
 
@@ -14,11 +16,14 @@ export default function Page({ data }) {
   return (
     <Layout>
       <div {...storyblokEditable(story.content)}>
+        <h1>{story.name}</h1>
         {components}
       </div>
     </Layout>
   )
 }
+
+export default IndexPage
 
 export const query = graphql`
   query ($full_slug: String!) {

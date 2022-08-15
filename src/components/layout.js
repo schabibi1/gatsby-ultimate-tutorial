@@ -1,11 +1,9 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { storyblokInit, apiPlugin } from "gatsby-source-storyblok"
-import Teaser from './teaser'
+import Teaser from "./teaser"
 import Grid from "./grid"
 import Feature from "./feature"
-import Navigation from "./navigation"
-import Footer from "./footer"
 
 storyblokInit({
   accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
@@ -14,15 +12,17 @@ storyblokInit({
     teaser: Teaser,
     grid: Grid,
     feature: Feature
-  }
-});
+  },
+})
 
 const Layout = ({ children }) => {
+  console.log(
+    "👋 layout.js | process.env.GATSBY_PREVIEW_STORYBLOK: ",
+    process.env.GATSBY_PREVIEW_STORYBLOK
+  )
   return (
-    <div className="text-center">
-      <Navigation />
-      {children}
-      <Footer />
+    <div>
+      <main>{children}</main>
     </div>
   )
 }

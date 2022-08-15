@@ -3,9 +3,9 @@ import { storyblokEditable } from "gatsby-source-storyblok";
 
 const Teaser = ({ blok }) => {
   return (
-    <h2 className="text-2xl mb-10" {...storyblokEditable(blok)}>
-      {blok.headline}
-    </h2>
+    <div {...storyblokEditable(blok)}>
+      <h1>{blok.headline}</h1>
+    </div>
   )
 }
 
