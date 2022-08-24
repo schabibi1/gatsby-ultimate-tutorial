@@ -12,7 +12,7 @@ storyblokInit({
   accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
   use: [apiPlugin],
   components: {
-    'hero-section': HeroSection, 
+    'hero-section': HeroSection,
     teaser: Teaser,
     grid: Grid,
     feature: Feature
