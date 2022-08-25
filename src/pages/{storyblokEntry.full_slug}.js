@@ -20,7 +20,6 @@ export default function Page({ data }) {
     <Layout>
       <div {...storyblokEditable(story.content)}>
         <Templates blok={story.content} key={story.content._uid} />
-        {console.log("TEMPLATES😎 ", <Templates blok={story.content} key={story.content._uid} />)}
       </div>
     </Layout>
   )

@@ -7,7 +7,6 @@ import Feature from "./feature"
 import Navigation from "./navigation"
 import Footer from "./footer"
 import Config from "./config"
-import HeaderMenu from "./headerMenu"
 import MenuLink from "./menuLink"
 
 storyblokInit({
@@ -18,7 +17,6 @@ storyblokInit({
     grid: Grid,
     feature: Feature,
     config: Config,
-    "header_menu": HeaderMenu,
     "menu_link": MenuLink
   }
 });
