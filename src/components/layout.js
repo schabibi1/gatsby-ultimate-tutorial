@@ -4,7 +4,7 @@ import { storyblokInit, apiPlugin } from "gatsby-source-storyblok"
 import Teaser from './teaser'
 import Grid from "./grid"
 import Feature from "./feature"
-import Navigation from "./navigation"
+import Header from "./header"
 import Footer from "./footer"
 import Config from "./config"
 import MenuLink from "./menuLink"
@@ -24,7 +24,7 @@ storyblokInit({
 const Layout = ({ children }) => {
   return (
     <div className="text-center">
-      <Navigation />
+      <Header />
       {children}
       <Footer />
     </div>
