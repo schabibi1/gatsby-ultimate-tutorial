@@ -6,11 +6,13 @@ import Grid from "./grid"
 import Feature from "./feature"
 import Header from "./header"
 import Footer from "./footer"
+import HeroSection from './hero-section';
 
 storyblokInit({
   accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
   use: [apiPlugin],
   components: {
+    'hero-section': HeroSection,
     teaser: Teaser,
     grid: Grid,
     feature: Feature
