@@ -109,20 +109,17 @@ const Navigation = () => {
                   <Link to="/about" className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                     {/* <!-- Heroicon name: outline/chart-bar --> */}
                     <span className="ml-3 text-base font-medium text-gray-900">
-
                       About
                     </span>
                   </Link>
                   <Link to="/blog" className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                     {/* <!-- Heroicon name: outline/cursor-click --> */}
                     <span className="ml-3 text-base font-medium text-gray-900">
-
                       Blog
                     </span>
                   </Link>
                   <Link to="/services" className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                     <span className="ml-3 text-base font-medium text-gray-900">
-
                       Services
                     </span>
                   </Link>
