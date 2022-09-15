@@ -9,12 +9,17 @@ export default function Page({ data }) {
   let story = data.storyblokEntry
   story = useStoryblokState(story)
 
-  const components = story.content.body.map(blok => (<StoryblokComponent blok={blok} key={blok._uid} />))
+  const Templates = () => {
+    if (story.content.component === 'page') {
+      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} />)
+    }
+    return (story.content.component !== 'page' ? <StoryblokComponent blok={story.content} key={story.content._uid} /> : null)
+  }
 
   return (
     <Layout>
       <div {...storyblokEditable(story.content)}>
-        {components}
+        <Templates blok={story.content} key={story.content._uid} />
       </div>
     </Layout>
   )

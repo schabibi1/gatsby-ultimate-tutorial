@@ -1,8 +1,29 @@
 import * as React from "react"
-import { useState } from "react";
-import { Link } from "gatsby";
+import { useState } from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
+
 const Navigation = () => {
+  const { config } = useStaticQuery(graphql`
+    {
+      config: allStoryblokEntry(filter: {field_component: {eq: "config"}}) {
+        edges {
+          node {
+            name
+            uuid
+            content
+          }
+        }
+      }
+    }
+  `)
+
   const [openMenu, setOpenMenu] = useState(false);
+
+  let thisConfig = config.edges.filter(({ node }) => node.uuid)
+  let configContent = thisConfig.length ? JSON.parse(thisConfig[0].node.content) : {}
+  let menu = configContent.header_menu.map(menu => menu.link.cached_url.split(','))
+
+  const Nav = () => menu.map(nav => <Link to={nav} key={nav}>{nav}</Link>)
 
   return (
     <div className="relative bg-white border-b-2 border-gray-100">
@@ -10,6 +31,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center  py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link to="/">
+<<<<<<< HEAD:src/components/header.js
               <span className="sr-only">Storyblok</span>
               <img
                 className="h-20 w-auto sm:h-10 hidden sm:block"
@@ -21,6 +43,21 @@ const Navigation = () => {
                 src='https://a.storyblok.com/f/88751/92x106/835caf912a/storyblok-logo.png'
                 alt="Storyblok"
               />
+=======
+              <a>
+                <span className="sr-only">Storyblok</span>
+                <img
+                  className="h-20 w-auto sm:h-10 hidden sm:block"
+                  src='https://a.storyblok.com/f/88751/251x53/0d3909fe96/storyblok-primary.png'
+                  alt="Storyblok"
+                />
+                <img
+                  className="h-20 w-auto sm:h-10 sm:hidden"
+                  src='https://a.storyblok.com/f/88751/92x106/835caf912a/storyblok-logo.png'
+                  alt="Storyblok"
+                />
+              </a>
+>>>>>>> part-3:src/components/navigation.js
             </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
@@ -50,6 +87,7 @@ const Navigation = () => {
             </button>
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10">
+<<<<<<< HEAD:src/components/header.js
             <Link to="/about" className="text-base font-medium text-gray-500 hover:text-gray-900">
               About
             </Link>
@@ -59,13 +97,16 @@ const Navigation = () => {
             <Link to="/services" className="text-base font-medium text-gray-500 hover:text-gray-900">
               Services
             </Link>
+=======
+            <Nav menu={menu} className="text-base font-medium text-gray-500 hover:text-gray-900" />
+>>>>>>> part-3:src/components/navigation.js
           </div>
         </div>
       </div>
 
       {/* <!--
-        Mobile menu, show/hide based on mobile menu state.
-      --> */}
+      Mobile menu, show/hide based on mobile menu state.
+    --> */}
       {openMenu && (
         <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
@@ -106,6 +147,7 @@ const Navigation = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
+<<<<<<< HEAD:src/components/header.js
                   <Link to="/about" className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                     {/* <!-- Heroicon name: outline/chart-bar --> */}
                     <span className="ml-3 text-base font-medium text-gray-900">
@@ -123,6 +165,9 @@ const Navigation = () => {
                       Services
                     </span>
                   </Link>
+=======
+                  <Nav menu={menu} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" />
+>>>>>>> part-3:src/components/navigation.js
                 </nav>
               </div>
             </div>
