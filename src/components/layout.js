@@ -9,6 +9,8 @@ import Footer from "./footer"
 import Config from "./config"
 import MenuLink from "./menuLink"
 import Hero from "./hero"
+import Article from "./article"
+import AllArticles from "./allArticles"
 
 storyblokInit({
   accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
@@ -19,7 +21,9 @@ storyblokInit({
     feature: Feature,
     config: Config,
     hero: Hero,
-    "menu_link": MenuLink
+    "menu_link": MenuLink,
+    article: Article,
+    "all-articles": AllArticles
   }
 });
 
