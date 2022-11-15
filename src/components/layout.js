@@ -11,6 +11,7 @@ import MenuLink from "./menuLink"
 import Hero from "./hero"
 import Article from "./article"
 import AllArticles from "./allArticles"
+import PopularArticles from "./popularArticles"
 
 storyblokInit({
   accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
@@ -23,7 +24,8 @@ storyblokInit({
     hero: Hero,
     "menu_link": MenuLink,
     article: Article,
-    "all-articles": AllArticles
+    "all-articles": AllArticles,
+    "popular-articles": PopularArticles
   }
 });
 

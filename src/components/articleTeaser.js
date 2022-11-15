@@ -2,19 +2,22 @@ import * as React from "react"
 
 const ArticleTeaser = ({ article, slug }) => {
   const parsedArticle = JSON.parse(article)
+  console.log(parsedArticle)
+  console.log(parsedArticle.image.filename)
   return (
     <div className="column feature">
       <div className="p-6">
         <img
           className="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"
-          src={parsedArticle.image.filename}
+          // src={parsedArticle.image.filename}
+          src={article.image.filename}
           alt="blog"
         />
         <h1 className="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl">
-          {parsedArticle.title}
+          {/* {parsedArticle.title} */}
         </h1>
         <div className="mx-auto text-base leading-relaxed text-gray-500 line-clamp-2">
-          {parsedArticle.subtitle}
+          {/* {parsedArticle.subtitle} */}
         </div>
         <div className="mt-4">
           <a

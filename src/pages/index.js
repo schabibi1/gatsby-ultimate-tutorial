@@ -7,7 +7,9 @@ import Layout from "../components/layout"
 
 export default function Home({ data }) {
   let story = data.storyblokEntry
-  story = useStoryblokState(story)
+  story = useStoryblokState(story, {
+    resolveRelations: ["popular-articles.articles"],
+  })
 
   const components = story.content.body.map(blok => (<StoryblokComponent blok={blok} key={blok._uid} />))
 

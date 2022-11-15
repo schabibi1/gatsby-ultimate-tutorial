@@ -7,7 +7,9 @@ import Layout from "../components/layout"
 
 export default function Page({ data }) {
   let story = data.storyblokEntry
-  story = useStoryblokState(story)
+  story = useStoryblokState(story, {
+    resolveRelations: ["popular-articles.articles"],
+  })
 
   const Templates = () => {
     if (story.content.component === 'page') {

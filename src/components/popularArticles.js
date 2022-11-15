@@ -1,10 +1,10 @@
-import * as React from "react"
+import * as React from "react";
 import ArticleTeaser from "./articleTeaser";
 import { storyblokEditable } from "gatsby-source-storyblok";
 import { useStaticQuery, graphql } from "gatsby"
 import { useState, useEffect } from "react";
 
-const AllArticles = ({ blok }) => {
+const PopularArtices = ({ blok }) => {
   const data = useStaticQuery(graphql`
     {
       posts: allStoryblokEntry(
@@ -36,23 +36,26 @@ const AllArticles = ({ blok }) => {
 
   return (
     <>
-      <p className="text-3xl">{blok.title}</p>
       <div
         className="grid w-full grid-cols-1 gap-6 mx-auto lg:grid-cols-3 lg:px-24 md:px-16"
         {...storyblokEditable(blok)}
       >
-        {articles[0] && articles.map(article => {
+        {articles.map(singleArticle => {
+          const uuid = blok.articles.filter(uuid => uuid === singleArticle.node.uuid ? singleArticle.node.uuid : null)
+
+          const article = singleArticle.node.uuid == uuid ? singleArticle.node.content : null
+          const uuidKey = singleArticle.node.uuid == uuid ? singleArticle.node.uuid : null
+          const slug = singleArticle.node.uuid == uuid ? singleArticle.node.slug : null
           return (
             <ArticleTeaser
-              article={article.node.content}
-              key={article.node.uuid}
-              slug={article.node.slug}
+              article={article}
+              key={uuidKey}
+              slug={slug}
             />
           )
-        }
-        )}
+        })}
       </div>
     </>
   );
 };
-export default AllArticles;
+export default PopularArtices;
