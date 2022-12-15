@@ -68,3 +68,9 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 node_modules
+
+#localhost-key.pem
+*.pem
+.pem*
+localhost-key.pem
+localhost.pem
