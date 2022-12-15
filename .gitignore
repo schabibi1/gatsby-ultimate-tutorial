@@ -71,6 +71,7 @@ node_modules
 
 
 #localhost pem
-*.pem
+.pem*
+.pem
 localhost-key.pem
 localhost.pem
