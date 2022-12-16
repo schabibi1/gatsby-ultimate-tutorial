@@ -1,6 +1,6 @@
 import * as React from "react"
 import { storyblokEditable } from "gatsby-source-storyblok";
-
+ 
 const Teaser = ({ blok }) => {
   console.log(blok)
   return (
@@ -11,5 +11,5 @@ const Teaser = ({ blok }) => {
     </div>
   )
 }
-
+ 
 export default Teaser
