@@ -17,7 +17,7 @@ const ArticleTeaser = ({ article, slug }) => {
         </div>
         <div className="mt-4">
           <a
-            href={`/blog/${slug}`}
+            href={`/blog/${article.slug || slug}`}
             className="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-600"
             title="read more"
           >

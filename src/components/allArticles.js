@@ -44,7 +44,7 @@ const AllArticles = ({ blok }) => {
         {articles[0] && articles.map(article => {
           return (
             <ArticleTeaser
-              article={article.node.content}
+              article={JSON.parse(article.node.content)}
               key={article.node.uuid}
               slug={article.node.slug}
             />
