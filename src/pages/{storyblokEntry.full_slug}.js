@@ -6,6 +6,7 @@ import { StoryblokComponent, storyblokEditable, useStoryblokState } from "gatsby
 import Layout from "../components/layout"
 
 export default function Page({ data }) {
+  console.log(data)
   let story = data.storyblokEntry
   story = useStoryblokState(story)
 
@@ -13,7 +14,10 @@ export default function Page({ data }) {
     if (story.content.component === 'page') {
       return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} />)
     }
-    return (story.content.component !== 'page' ? <StoryblokComponent blok={story.content} key={story.content._uid} /> : null)
+
+    const blok = story.content
+
+    return (story.content.component !== 'page' ? <StoryblokComponent blok={blok} key={blok._uid} /> : null)
   }
 
   return (
@@ -34,6 +38,7 @@ export const query = graphql`
       uuid
       id
       internalId
+      lang
     }
   }
 `

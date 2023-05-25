@@ -2,28 +2,12 @@ import * as React from "react"
 import { useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-const Navigation = () => {
-  const { config } = useStaticQuery(graphql`
-    {
-      config: allStoryblokEntry(filter: {field_component: {eq: "config"}}) {
-        edges {
-          node {
-            name
-            uuid
-            content
-          }
-        }
-      }
-    }
-  `)
+const Navigation = ({blok}) => {
+
+  console.log(blok)
+
 
   const [openMenu, setOpenMenu] = useState(false);
-
-  let thisConfig = config.edges.filter(({ node }) => node.uuid)
-  let configContent = thisConfig.length ? JSON.parse(thisConfig[0].node.content) : {}
-  let menu = configContent.header_menu.map(menu => menu.link.cached_url.split(','))
-
-  const Nav = () => menu.map(nav => <Link to={nav} key={nav}>{nav}</Link>)
 
   return (
     <div className="relative bg-white border-b-2 border-gray-100">
@@ -73,7 +57,7 @@ const Navigation = () => {
             </button>
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10">
-            <Nav menu={menu} className="text-base font-medium text-gray-500 hover:text-gray-900" />
+            {/* <Nav menu={menu} className="text-base font-medium text-gray-500 hover:text-gray-900" /> */}
           </div>
         </div>
       </div>
@@ -121,7 +105,7 @@ const Navigation = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  <Nav menu={menu} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" />
+                  {/* <Nav menu={menu} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" /> */}
                 </nav>
               </div>
             </div>
