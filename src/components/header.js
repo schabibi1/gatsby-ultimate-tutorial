@@ -2,10 +2,10 @@ import * as React from "react"
 import { useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-const Navigation = ({blok}) => {
+const Header = ({story, blok}) => {
 
+  console.log(story)
   console.log(blok)
-
 
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -116,4 +116,4 @@ const Navigation = ({blok}) => {
   );
 };
 
-export default Navigation;
+export default Header;
