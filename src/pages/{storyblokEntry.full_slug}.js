@@ -16,9 +16,14 @@ export default function Page({ data }) {
     }
 
     const blok = story.content
-
-    return (story.content.component !== 'page' ? <StoryblokComponent blok={blok} key={blok._uid} /> : null)
+    
+    console.log(story)
+    // return (story.content.component !== 'page' ? <StoryblokComponent blok={blok} key={blok._uid} lang={blok.lang} /> : null)
+    return (story.content.component !== 'page' ? <StoryblokComponent blok={story} key={story._uid} lang={story.lang} /> : null)
+  
   }
+
+
 
   return (
     <Layout>
