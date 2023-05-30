@@ -84,7 +84,7 @@ const Navigation = () => {
             </button>
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10">
-            <Nav dynamicLocales={dynamicLocales} className="text-base font-medium text-gray-500 hover:text-gray-900" />
+            {/* <Nav dynamicLocales={dynamicLocales} className="text-base font-medium text-gray-500 hover:text-gray-900" /> */}
           </div>
         </div>
       </div>
@@ -132,7 +132,7 @@ const Navigation = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  <Nav dynamicLocales={dynamicLocales} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" />
+                  {/* <Nav dynamicLocales={dynamicLocales} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" /> */}
                 </nav>
               </div>
             </div>

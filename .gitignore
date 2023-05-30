@@ -74,3 +74,6 @@ node_modules
 .pem*
 localhost-key.pem
 localhost.pem
+
+#vs code config files
+.vscode
