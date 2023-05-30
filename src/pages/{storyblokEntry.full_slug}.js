@@ -15,12 +15,12 @@ export default function Page({ data }) {
       return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} />)
     }
 
-    const blok = story.content
-    
+    // const blok = story.content
+
     console.log(story)
     // return (story.content.component !== 'page' ? <StoryblokComponent blok={blok} key={blok._uid} lang={blok.lang} /> : null)
     return (story.content.component !== 'page' ? <StoryblokComponent blok={story} key={story._uid} lang={story.lang} /> : null)
-  
+
   }
 
 
