@@ -5,28 +5,21 @@ import { StoryblokComponent, storyblokEditable, useStoryblokState } from "gatsby
 
 import Layout from "../components/layout"
 
-export default function Page({ data }) {
-  console.log(data)
+export default function Page({ data, location }) {
   let story = data.storyblokEntry
   story = useStoryblokState(story)
 
   const Templates = () => {
     if (story.content.component === 'page') {
-      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} />)
+      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} location={location} />)
     }
 
-    // const blok = story.content
-
-    console.log(story)
     // return (story.content.component !== 'page' ? <StoryblokComponent blok={blok} key={blok._uid} lang={blok.lang} /> : null)
-    return (story.content.component !== 'page' ? <StoryblokComponent blok={story} key={story._uid} lang={story.lang} /> : null)
-
+    return (story.content.component !== 'page' ? <StoryblokComponent blok={story} key={story._uid} lang={story.lang} location={location} /> : null)
   }
 
-
-
   return (
-    <Layout>
+    <Layout location={location}>
       <div {...storyblokEditable(story.content)}>
         <Templates blok={story.content} key={story.content._uid} />
       </div>

@@ -23,10 +23,10 @@ storyblokInit({
   }
 });
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   return (
     <div className="text-center">
-      <Header />
+      <Header location={location} />
       {children}
       <Footer />
     </div>

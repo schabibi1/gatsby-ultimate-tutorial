@@ -2,7 +2,7 @@ import * as React from "react"
 import { useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-const Navigation = () => {
+const Header = ({ location }) => {
   const { config } = useStaticQuery(graphql`
     {
       config: allStoryblokEntry {
@@ -19,22 +19,14 @@ const Navigation = () => {
   `)
 
   const [openMenu, setOpenMenu] = useState(false);
-  console.log(config)
+  console.log(location)
 
   // let thisConfig = config.edges.filter(({ node }) => node.uuid)
   // let configContent = thisConfig.length ? JSON.parse(thisConfig[0].node.content) : {}
   // let menu = configContent.header_menu.map(menu => menu.link.cached_url.split(','))
 
-  let thisConfig = config.edges.filter(({ node }) => node.uuid)
-  let dynamicLocales = thisConfig.length ? thisConfig[0].node.full_slug : {}
-  console.log(dynamicLocales)
-
-  let locale = "es/";
-  if (dynamicLocales.includes(locale)) {
-
-  }
-
-  // const Nav = () => dynamicLocales.map(nav => <Link to={nav} key={nav}>{nav}</Link>)
+  let allSlugs = config.edges.map(({ node }) => node.full_slug)
+  let slug = location.pathname = "es/blog/article-1".replace(location.pathname, '')
 
   return (
     <div className="relative bg-white border-b-2 border-gray-100">
@@ -84,7 +76,8 @@ const Navigation = () => {
             </button>
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10">
-            {/* <Nav dynamicLocales={dynamicLocales} className="text-base font-medium text-gray-500 hover:text-gray-900" /> */}
+            <Link to={slug} className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log(slug)}>ES</Link>
+            <Link to={location.pathname} className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log(location.pathname)}>EN</Link>
           </div>
         </div>
       </div>
@@ -132,7 +125,7 @@ const Navigation = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  {/* <Nav dynamicLocales={dynamicLocales} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" /> */}
+                  <Link to={location.pathname} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">ES</Link>
                 </nav>
               </div>
             </div>
@@ -143,4 +136,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Header;
