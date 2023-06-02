@@ -5,16 +5,16 @@ import { StoryblokComponent, storyblokEditable, useStoryblokState } from "gatsby
 
 import Layout from "../components/layout"
 
-export default function Home({ data }) {
+export default function Home({ data, location }) {
   let story = data.storyblokEntry
   story = useStoryblokState(story)
 
-  const components = story.content.body.map(blok => (<StoryblokComponent blok={blok} key={blok._uid} />))
+  const components = story.content.body.map(blok => (<StoryblokComponent blok={blok} key={blok._uid} location={location} />))
 
   return (
     <Layout>
       <div {...storyblokEditable(story.content)}>
-      <h1>{story.name}</h1>
+        <h1>{story.name}</h1>
         {components}
       </div>
     </Layout>
