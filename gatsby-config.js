@@ -1,8 +1,18 @@
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
+ */
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV || "production"}`,
 })
 
+
 module.exports = {
+  flags: {
+    PARTIAL_HYDRATION: true
+  },
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
@@ -10,8 +20,6 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -24,6 +32,9 @@ module.exports = {
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
+      fallback: {
+        "path": require.resolve("path-browserify"),
+      },
       options: {
         name: `gatsby-starter-default`,
         short_name: `starter`,
@@ -40,14 +51,11 @@ module.exports = {
       resolve: 'gatsby-source-storyblok',
       options: {
         accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
-        // accessToken: "ZdFYtxeakrdRenL0wGCJsgtt",
+        // accessToken: 'xe1Bt6kIzU9Jrss8XTDxhQtt',
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
         localAssets: true, // Optional parameter to download the images to use with Gatsby Image Plugin
         // languages: ['de', 'at'] // Optional parameter. Omission will retrieve all languages by default.
       }
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    }
   ],
 }
