@@ -12,6 +12,7 @@ import Teaser from './Teaser'
 import Grid from './Grid'
 import Page from './Page'
 import Feature from './Feature'
+import '../styles/global.css'
 
 
 storyblokInit({

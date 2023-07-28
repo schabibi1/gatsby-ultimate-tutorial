@@ -30,6 +30,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-manifest`,
       fallback: {
@@ -40,9 +41,6 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
@@ -51,7 +49,6 @@ module.exports = {
       resolve: 'gatsby-source-storyblok',
       options: {
         accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
-        // accessToken: 'xe1Bt6kIzU9Jrss8XTDxhQtt',
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
         localAssets: true, // Optional parameter to download the images to use with Gatsby Image Plugin
         // languages: ['de', 'at'] // Optional parameter. Omission will retrieve all languages by default.
