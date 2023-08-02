@@ -75,3 +75,4 @@ node_modules
 localhost-key.pem
 localhost.pem
 .vscode
+.vscode/*
