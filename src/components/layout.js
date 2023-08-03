@@ -14,7 +14,6 @@ import Page from './Page'
 import Feature from './Feature'
 import '../styles/global.css'
 
-
 storyblokInit({
   accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
   use: [apiPlugin],
@@ -27,6 +26,10 @@ storyblokInit({
 });
 
 const Layout = ({ children }) => {
+  console.log(
+    "👋 layout.js | process.env.GATSBY_PREVIEW_STORYBLOK: ",
+    process.env.GATSBY_PREVIEW_STORYBLOK
+  )
   return (
     <div>
       <main>{children}</main>
