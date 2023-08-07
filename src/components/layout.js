@@ -13,6 +13,8 @@ import Grid from './Grid'
 import Page from './Page'
 import Feature from './Feature'
 import '../styles/global.css'
+import Footer from './footer'
+import Navigation from './header';
 
 
 storyblokInit({
@@ -29,7 +31,9 @@ storyblokInit({
 const Layout = ({ children }) => {
   return (
     <div>
+      <Navigation/>
       <main>{children}</main>
+      <Footer/>
     </div>
   )
 }
