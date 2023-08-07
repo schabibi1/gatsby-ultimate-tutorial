@@ -1,11 +1,21 @@
-import * as React from "react"
+/**
+ * Layout component that queries for data
+ * with Gatsby's useStaticQuery component
+ *
+ * See: https://www.gatsbyjs.com/docs/use-static-query/
+ */
+"use client";
+import React from "react"
 import PropTypes from "prop-types"
 import { storyblokInit, apiPlugin } from "gatsby-source-storyblok"
-import Teaser from './teaser'
-import Grid from "./grid"
-import Feature from "./feature"
-import Navigation from "./navigation"
-import Footer from "./footer"
+import Teaser from './Teaser'
+import Grid from './Grid'
+import Page from './Page'
+import Feature from './Feature'
+import '../styles/global.css'
+import Footer from './footer'
+import Navigation from './header';
+
 
 storyblokInit({
   accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
@@ -13,16 +23,17 @@ storyblokInit({
   components: {
     teaser: Teaser,
     grid: Grid,
-    feature: Feature
+    feature: Feature,
+    page: Page
   }
 });
 
 const Layout = ({ children }) => {
   return (
-    <div className="text-center">
-      <Navigation />
-      {children}
-      <Footer />
+    <div>
+      <Navigation/>
+      <main>{children}</main>
+      <Footer/>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 const Footer = () => (
   <footer className="bg-white lg:absolute lg:bottom-0 block w-full" aria-labelledby="footer-heading">
@@ -110,13 +110,13 @@ const Footer = () => (
       </div>
       <div className="mt-8 md:mt-0 md:order-1">
         <span className="mt-2 text-sm font-light text-gray-500">
-          Copyright © 2017-2022
+           Copyright © 2017-2022 
           <a href="#" className="mx-2 text-wickedblue hover:text-gray-500" rel="noopener noreferrer">Storyblok GmbH</a>.
         </span>
       </div>
     </div>
   </footer>
-
-)
-
-export default Footer
+   
+  )
+   
+  export default Footer
