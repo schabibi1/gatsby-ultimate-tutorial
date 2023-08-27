@@ -8,9 +8,16 @@ import Layout from "../components/layout"
 const IndexPage = ({ data }) => {
   if (typeof data.storyblokEntry.content === "string") data.storyblokEntry.content = JSON.parse(data.storyblokEntry.content);
 
+  const Templates = () => {
+    if (data.storyblokEntry.content.component === "page") {
+      return <StoryblokStory story={data.storyblokEntry}/>
+    } 
+      return (data.storyblokEntry.content.component !== "page" ? <StoryblokStory story={data.storyblokEntry.content} blok={data.storyblokEntry.content}/> : null)
+  }
+
   return (
     <Layout>
-      <StoryblokStory story={data.storyblokEntry} />{/* ⬅️ */}
+      <Templates />
     </Layout>
   )
 }

@@ -15,6 +15,8 @@ import Feature from './Feature'
 import '../styles/global.css'
 import Footer from './footer'
 import Navigation from './header';
+import Config from "./config";
+import MenuLink from "./menuLink";
 
 
 storyblokInit({
@@ -24,7 +26,9 @@ storyblokInit({
     teaser: Teaser,
     grid: Grid,
     feature: Feature,
-    page: Page
+    page: Page,
+    config: Config,
+    "menu_link": MenuLink
   }
 });
 
