@@ -1,7 +1,7 @@
 import * as React from "react"
 import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok"
 import { Link } from "gatsby"
-
+ 
 const Config = ({ blok }) => {
   return (
     <div className="relative bg-white border-b-2 border-gray-100" {...storyblokEditable(blok)}>

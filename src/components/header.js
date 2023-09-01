@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-
+ 
 const Navigation = () => {
   const { config } = useStaticQuery(graphql`
     {
@@ -16,15 +16,15 @@ const Navigation = () => {
       }
     }
   `)
-
+ 
   const [openMenu, setOpenMenu] = useState(false);
-
+ 
   let thisConfig = config.edges.filter(({ node }) => node.uuid)
   let configContent = thisConfig.length ? JSON.parse(thisConfig[0].node.content) : {}
   let menu = configContent.header_menu.map(menu => menu.link.cached_url.split(','))
-
+ 
   const Nav = () => menu.map(nav => <Link to={nav} key={nav}>{nav}</Link>)
-
+ 
   return (
     <div className="relative bg-white border-b-2 border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -77,7 +77,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-
+ 
       {/* <!--
       Mobile menu, show/hide based on mobile menu state.
     --> */}
@@ -131,5 +131,5 @@ const Navigation = () => {
     </div>
   );
 };
-
+ 
 export default Navigation;
