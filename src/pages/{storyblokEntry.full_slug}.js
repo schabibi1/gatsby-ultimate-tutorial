@@ -1,33 +1,32 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 
-import { StoryblokComponent, storyblokEditable, useStoryblokState } from "gatsby-source-storyblok"
+import { StoryblokStory } from "gatsby-source-storyblok"
 
 import Layout from "../components/layout"
 
-export default function Page({ data }) {
-  let story = data.storyblokEntry
-  story = useStoryblokState(story)
+const IndexPage = ({ data }) => {
+  if (typeof data.storyblokEntry.content === "string") data.storyblokEntry.content = JSON.parse(data.storyblokEntry.content);
 
   const Templates = () => {
-    if (story.content.component === 'page') {
-      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} />)
-    }
-    return (story.content.component !== 'page' ? <StoryblokComponent blok={story.content} key={story.content._uid} /> : null)
+    if (data.storyblokEntry.content.component === "page") {
+      return <StoryblokStory story={data.storyblokEntry}/>
+    } 
+      return (data.storyblokEntry.content.component !== "page" ? <StoryblokStory story={data.storyblokEntry.content} blok={data.storyblokEntry.content}/> : null)
   }
 
   return (
     <Layout>
-      <div {...storyblokEditable(story.content)}>
-        <Templates blok={story.content} key={story.content._uid} />
-      </div>
+      <Templates />
     </Layout>
   )
 }
 
+export default IndexPage
+
 export const query = graphql`
-  query ($full_slug: String!) {
-    storyblokEntry(full_slug: { eq: $full_slug }) {
+  query ($full_slug: String) {
+    storyblokEntry(full_slug: { eq: $full_slug}) {
       content
       name
       full_slug
