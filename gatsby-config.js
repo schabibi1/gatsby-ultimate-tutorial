@@ -48,7 +48,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-storyblok',
       options: {
-        accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
+        // accessToken: process.env.GATSBY_PREVIEW_STORYBLOK,
+        accessToken: 'W1vLyxT5rQ15jBpANjnv0gtt',
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
         localAssets: true, // Optional parameter to download the images to use with Gatsby Image Plugin
         // languages: ['de', 'at'] // Optional parameter. Omission will retrieve all languages by default.
