@@ -1,3 +1,4 @@
+"use client" // Required for Partial Hydration, client components (RSC)
 import * as React from "react"
 import PropTypes from "prop-types"
 import { storyblokInit, apiPlugin } from "gatsby-source-storyblok"
