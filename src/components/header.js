@@ -2,7 +2,7 @@ import * as React from "react"
 import { useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-const Header = ({ location }) => {
+const Header = () => {
   const { config } = useStaticQuery(graphql`
     {
       config: allStoryblokEntry {
@@ -19,7 +19,6 @@ const Header = ({ location }) => {
   `)
 
   const [openMenu, setOpenMenu] = useState(false);
-  console.log(location)
 
   // let thisConfig = config.edges.filter(({ node }) => node.uuid)
   // let configContent = thisConfig.length ? JSON.parse(thisConfig[0].node.content) : {}
@@ -28,8 +27,8 @@ const Header = ({ location }) => {
   // let allSlugs = config.edges.map(({ node }) => node.full_slug)
 
   // Super static but works
-  let slug = location.href
-  slug = slug.replace('blog/article-1/', 'es/blog/article-1/')
+  // let slug = location.href
+  // slug = slug.replace('blog/article-1/', 'es/blog/article-1/')
 
   // Maybe won't work in deployment
   // let slug = location.host
@@ -38,7 +37,7 @@ const Header = ({ location }) => {
   // Kind of dynamic but unexpected behaviour
   // let slug = location.href.replace(location.href, 'http://localhost:8000/blog/article-1')
   // slug = slug.replace(location.pathname, `es/${location.pathname}`)
-  console.log(slug)
+  // console.log(slug)
 
   return (
     <div className="relative bg-white border-b-2 border-gray-100">
@@ -88,8 +87,8 @@ const Header = ({ location }) => {
             </button>
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10">
-            <Link to={slug} className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log(slug)}>ES</Link>
-            <Link to={slug} className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log(slug)}>EN</Link>
+            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log('slug')}>ES</Link>
+            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log('slug')}>EN</Link>
           </div>
         </div>
       </div>
@@ -137,7 +136,7 @@ const Header = ({ location }) => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  <Link to={location.pathname} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">ES</Link>
+                  <Link className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">ES</Link>
                 </nav>
               </div>
             </div>
