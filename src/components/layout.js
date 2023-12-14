@@ -8,7 +8,7 @@ import Feature from "./feature"
 import Header from "./header"
 import Footer from "./footer"
 import Config from "./config"
-// import MenuLink from "./menuLink"
+import MenuLink from "./menuLink"
 import Hero from "./hero"
 
 storyblokInit({
@@ -20,14 +20,14 @@ storyblokInit({
     feature: Feature,
     config: Config,
     hero: Hero,
-    // "menu_link": MenuLink
+    "menu_link": MenuLink
   }
 });
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children }) => {
   return (
     <div className="text-center">
-      <Header location={location} />
+      <Header />
       {children}
       <Footer />
     </div>

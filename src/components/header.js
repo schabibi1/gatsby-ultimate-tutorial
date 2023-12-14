@@ -87,8 +87,8 @@ const Header = () => {
             </button>
           </div>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-10">
-            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log('slug')}>ES</Link>
-            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log('slug')}>EN</Link>
+            <Link to="/home" className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log('slug')}>ES</Link>
+            <Link to="/home" className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={console.log('another one')}>EN</Link>
           </div>
         </div>
       </div>

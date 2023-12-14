@@ -5,22 +5,22 @@ import { StoryblokComponent, storyblokEditable, useStoryblokState } from "gatsby
 
 import Layout from "../components/layout"
 
-export default function Page({ data, location }) {
-  console.log(data)
+export default function Page({ data }) {
   let story = data.storyblokEntry
-  story = useStoryblokState(story)
+  story = useStoryblokState(story, {
+    resolveRelations: ["popular-articles.articles"]
+  })
 
   const Templates = () => {
     if (story.content.component === 'page') {
-      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} location={location} />)
+      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} />)
     }
 
-    // return (story.content.component !== 'page' ? <StoryblokComponent blok={blok} key={blok._uid} lang={blok.lang} /> : null)
-    return (story.content.component !== 'page' ? <StoryblokComponent blok={story} key={story._uid} lang={story.lang} location={location} /> : null)
+    return (story.content.component !== 'page' ? <StoryblokComponent blok={story.content} key={story.content_uid} /> : null)
   }
 
   return (
-    <Layout location={location}>
+    <Layout>
       <div {...storyblokEditable(story.content)}>
         <Templates blok={story.content} key={story.content._uid} />
       </div>
