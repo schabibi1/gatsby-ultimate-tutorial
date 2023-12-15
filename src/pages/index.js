@@ -6,7 +6,6 @@ import { StoryblokStory, useStoryblokState } from "gatsby-source-storyblok"
 import Layout from "../components/layout"
 
 export default function Home({ data }) {
-  console.log(data)
   let story = data.storyblokEntry
   story = useStoryblokState(story, {
     resolveRelations: ["popular-articles.articles"]
@@ -17,7 +16,6 @@ export default function Home({ data }) {
   return (
     <Layout>
       <div>
-        <h1>{story.name}</h1>
         {components}
       </div>
     </Layout>

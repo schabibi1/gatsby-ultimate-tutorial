@@ -13,16 +13,16 @@ export default function Page({ data }) {
 
   const Templates = () => {
     if (story.content.component === 'page') {
-      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} />)
+      return story.content.body.map(blok => <StoryblokComponent blok={blok} key={blok._uid} slug={blok.full_slug} />)
     }
 
-    return (story.content.component !== 'page' ? <StoryblokComponent blok={story.content} key={story.content_uid} /> : null)
+    return (story.content.component !== 'page' ? <StoryblokComponent blok={story.content} key={story.content_uid} slug={story.full_slug} /> : null)
   }
 
   return (
     <Layout>
       <div {...storyblokEditable(story.content)}>
-        <Templates blok={story.content} key={story.content._uid} />
+        <Templates blok={story.content} key={story.content._uid} slug={story.full_slug} />
       </div>
     </Layout>
   )
