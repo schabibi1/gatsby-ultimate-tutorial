@@ -30,8 +30,3 @@ You can switch between the different branches of this repository; there is one b
  - Tutorial: [Create and Render Blog Articles in Storyblok and Gatsby](https://www.storyblok.com/tp/create-and-render-blog-articles-in-storyblok-and-gatsby)
  - Branch: [part-5](https://github.com/storyblok/gatsby-ultimate-tutorial/tree/part-5)
  - Storyblok space: [Create your own copy](https://app.storyblok.com/#!/build/169999)
-
-  ### Part 6 - Coming soon
- - Tutorial: Manage Multilingual Content in Storyblok and Gatsby
- - Branch: part-6
- - Storyblok space: Create your own copy
